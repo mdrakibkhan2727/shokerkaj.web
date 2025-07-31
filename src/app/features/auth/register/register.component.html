@@ -1,0 +1,56 @@
+  <section class="login-main-wrapper">
+      <div class="container-fluid pl-0 pr-0">
+        <div class="row no-gutters">
+            <div class="col-md-12 p-5 bg-white full-height">
+              <div class="login-main-left">
+                  <div class="text-center mb-3 login-main-left-header pt-4">
+                    <img src="img/login_logo.png" style="width: 100px; height: 100px;" class="img-fluid" alt="LOGO">
+                    <h6 class="mt-3 ">Welcome to Entrepreneur Community</h6>
+                  </div>
+                  <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+                    <div class="form-group mb-0">
+                        <label>Username</label>
+                        <input type="text" class="form-control" formControlName="username" placeholder="Enter Username" />
+                        <div *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.invalid" class="text-danger">
+                          <small *ngIf="registerForm.get('username')?.errors?.['required']">Username is required.</small>
+                          <small *ngIf="registerForm.get('username')?.errors?.['minlength']">Username must be at least 3 characters.</small>
+                        </div>
+                      </div>
+                      <div class="form-group mb-0">
+                        <label>EmailAddress</label>
+                        <input type="email" class="form-control" formControlName="emailAddress" placeholder="Enter EmailAddress" />
+                        <div *ngIf="registerForm.get('emailAddress')?.touched && registerForm.get('emailAddress')?.invalid" class="text-danger">
+                          <small *ngIf="registerForm.get('emailAddress')?.errors?.['required']">Email is required.</small>
+                          <small *ngIf="registerForm.get('emailAddress')?.errors?.['email']">Enter a valid email address.</small>
+                        </div>
+                      </div>
+                      <div class="form-group mb-0">
+                        <label>Password</label>
+                        <input type="password" class="form-control" formControlName="password" placeholder="Password" />
+                        <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid" class="text-danger">
+                          <small *ngIf="registerForm.get('password')?.errors?.['required']">Password is required.</small>
+                          <small *ngIf="registerForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters.</small>
+                        </div>
+                      </div>
+                      <div class="form-group mb-0">
+                        <label>Role (optional)</label>
+                        <select class="form-control" formControlName="role">
+                          <option value="">Select role</option>
+                          <option value="businessman">Businessman</option>
+                          <option value="newbusinessman">New Businessman</option>
+                          <option value="teacher">Teacher</option>
+                        </select>
+                      </div>
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-outline-success btn-block btn-sm btn-lg" [disabled]="registerForm.invalid">Sign Up</button>
+                    </div>
+                  </form>
+                  <div class="text-center mt-3">
+                    <p class="light-gray">Already have an Account? <a href="#">Sign In</a></p>
+                  </div>
+              </div>
+            </div>
+
+        </div>
+      </div>
+  </section>
