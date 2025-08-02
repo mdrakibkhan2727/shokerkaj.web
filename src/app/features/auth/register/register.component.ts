@@ -4,9 +4,10 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../../core/services/auth/auth.service';
 import { RegisterInfo } from '../../../core/models/auth/register';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-register',
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule,ReactiveFormsModule,RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })

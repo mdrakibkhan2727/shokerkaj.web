@@ -167,7 +167,7 @@ Version: 1.0
     /* FF3.6-15 */
      background: -webkit-linear-gradient(-45deg, #ff516b 0%,#826cfd 100%);
     /* Chrome10-25,Safari5.1-6 */
-     background: #157b56;
+     background: #fff;
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff516b', endColorstr='#826cfd',GradientType=1 );
     /* IE6-9 fallback on horizontal gradient */
@@ -190,7 +190,7 @@ Version: 1.0
      background-color: rgba(255, 255, 255, 0.2);
 }
  .sidebar .nav-item .nav-link .fas {
-     color: #ffffff;
+     color: #212529
 }
  .sidebar .nav-item .nav-link span {
      display: inline;
@@ -212,10 +212,10 @@ Version: 1.0
      display: none;
 }
  .sidebar .nav-item .nav-link {
-     color: #ffffff;
+     color: #212529;
 }
  .sidebar .nav-item .nav-link:active, .sidebar .nav-item .nav-link:focus, .sidebar .nav-item .nav-link:hover {
-     color: rgba(255, 255, 255, 0.75);
+     color: #212529;
 }
  .sidebar.toggled {
      width: 0 !important;
@@ -370,7 +370,7 @@ Version: 1.0
      color: #777;
 }
  footer.sticky-footer {
-     background-color: #e9ecef;
+     background-color: #fff;
      padding: 3px;
      margin-left: 225px;
 }
@@ -977,7 +977,8 @@ Version: 1.0
 }
  .login-main-left {
      margin: auto;
-     max-width: 335px;
+     max-width: 600px;
+     margin-top: 40px;
 }
  .login-main-right.bg-white {
      border-radius: 2px;

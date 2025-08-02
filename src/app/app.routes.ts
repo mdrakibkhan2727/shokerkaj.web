@@ -103,5 +103,5 @@ export const routes: Routes = [
 
 
   // 404 fallback
-  { path: '**', redirectTo: 'admin/dashboard' }
+  { path: '**', redirectTo: 'admin/dashboard'}
 ];

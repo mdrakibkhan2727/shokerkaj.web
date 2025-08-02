@@ -9,7 +9,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
    {
      provide: SERVER_URL,
-     useValue: 'https://localhost:5001/api/v1/',
+     useValue: 'https://api.shokerkaj.com/api/v1/',
    },
     provideHttpClient(withInterceptors([tokenInterceptor])),
     provideZoneChangeDetection({ eventCoalescing: true }),

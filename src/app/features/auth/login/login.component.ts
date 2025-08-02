@@ -3,12 +3,13 @@ import { AuthService } from '../../../core/services/auth/auth.service';
 import { JwtPayload } from '../../../core/models/auth/jwt-payload';
 import {jwtDecode} from 'jwt-decode';
 import { LoginInfo } from '../../../core/models/auth/login';
+import { RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
