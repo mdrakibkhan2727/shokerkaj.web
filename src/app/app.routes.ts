@@ -13,18 +13,44 @@ import { UserCrowdfundingPlaylistComponent } from './features/user/user-crowdfun
 import { BooksComponent } from './features/admin/books/books.component';
 import { AdminVarificationComponent } from './features/admin/admin-varification/admin-varification.component';
 import { authGuard } from './core/guards/auth.guard';
+import { HomeComponent } from './features/web/home/home.component';
+import { BirdsAndToysComponent } from './features/web/birds-and-toys/birds-and-toys.component';
+import { ArtsAndPaintsComponent } from './features/web/arts-and-paints/arts-and-paints.component';
+import { HomeDecorComponent } from './features/web/home-decor/home-decor.component';
+import { InteriorComponent } from './features/web/interior/interior.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'admin/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 
-  // Admin Dashboard
+  // Web Pages
+  {
+    path: '',
+    component: HomeComponent,
+  },
+  {
+    path: 'birds-and-toys',
+    component: BirdsAndToysComponent,
+  },
+  {
+    path: 'arts-and-paints',
+    component: ArtsAndPaintsComponent,
+  },
+  {
+    path: 'home-decor',
+    component: HomeDecorComponent,
+  },
+  {
+    path: 'interior',
+    component: InteriorComponent,
+  },
+  // Admin Dashboard Pages
   {
     path: 'admin/dashboard',
     component: DashboardComponent,
-    // canActivate: [authGuard],
-    // data: { roles: ['superadmin', 'teacher', 'businessman', 'newbusinessman'] }
+    canActivate: [authGuard],
+    data: { roles: ['superadmin', 'teacher', 'businessman', 'newbusinessman'] }
   },
 
   // Businessman
@@ -103,5 +129,5 @@ export const routes: Routes = [
 
 
   // 404 fallback
-  { path: '**', redirectTo: 'admin/dashboard'}
+  { path: '**', redirectTo: ''}
 ];

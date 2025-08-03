@@ -1,0 +1,104 @@
+    * {
+      box-sizing: border-box;
+      /* margin: 200px; */
+      /* padding: 0; */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #fdf6f0;
+      color: #3e2723;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 15px;
+    }
+
+    .container {
+      background: #fff3e0;
+      margin-top: 100px;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(93, 64, 55, 0.2);
+      max-width: 450px;
+      width: 100%;
+    }
+
+    h2 {
+      margin-bottom: 25px;
+      color: #5d4037;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: 1.5px solid #ffcc80;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: #3e2723;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #ff9800;
+      outline: none;
+    }
+
+  .select-box {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1.5px solid #ffcc80;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #3e2723;
+    transition: border-color 0.3s ease;
+  }
+
+    button {
+      width: 100%;
+      background-color: #5d4037;
+      color: #fff3e0;
+      padding: 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #7b5e57;
+    }
+
+    .footer-text {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #5d4037;
+    }
+
+    .footer-text a {
+      color: #ff9800;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-text a:hover {
+      text-decoration: underline;
+    }

@@ -23,6 +23,12 @@ export const SIDEBAR_ITEMS: SidebarItem[] = [
     hideWhenLoggedIn: true
   },
   {
+    label: 'Home',
+    icon: 'fas fa-sign-in-alt',
+    route: '/',
+    hideWhenLoggedIn: true
+  },
+  {
     label: 'হোম',
     icon: 'fas fa-fw fa-home',
     route: '/admin/dashboard',

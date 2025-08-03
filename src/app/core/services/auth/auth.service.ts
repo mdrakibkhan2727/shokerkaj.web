@@ -1,27 +1,26 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable, signal } from '@angular/core';
-import { SERVER_URL } from '../../../app.config';
 import { LoginInfo } from '../../models/auth/login';
 import { RegisterInfo } from '../../models/auth/register';
 import { Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
-
+import { environment } from '../../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+    private apiUrl = `${environment.apiUrl}`;
   constructor(
     private http: HttpClient,
-    @Inject(SERVER_URL) private baseUrl: string,
     private router: Router
   ) { }
 
   proceedLogin(_data: LoginInfo): Observable<any> {
-    return this.http.post<any>(this.baseUrl + 'account/login', _data);
+    return this.http.post<any>(this.apiUrl + 'account/login', _data);
   }
 
   proceedRegister(_data: RegisterInfo): Observable<any> {
-    return this.http.post<any>(this.baseUrl + 'account/register', _data);
+    return this.http.post<any>(this.apiUrl + 'account/register', _data);
   }
 
   // Logout method to clear session and localStorage, and update UI
