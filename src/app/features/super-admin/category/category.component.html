@@ -1,37 +1,88 @@
-      <div class="top-category section-padding mb-4">
-          <div class="mt-4">
-              <h6>All Categories</h6>
-          </div>
-            <div class="card p-3">
-              <div class="row">
-                   <div class="col-md-4">
-                      <ul>
-                        <li>IT</li>
-                        <li>Health</li>
-                        <li>Health</li>
-                      </ul>
-                   </div>
-                   <div class="col-md-4">
-                      <ul>
-                        <li>IT</li>
-                        <li>Health</li>
-                        <li>Health</li>
-                      </ul>
-                   </div>
-                   <div class="col-md-4">
-                      <ul>
-                        <li>IT</li>
-                        <li>Health</li>
-                        <li>Health</li>
-                      </ul>
-                   </div>
-                   <div class="col-md-4">
-                      <ul>
-                        <li>IT</li>
-                        <li>Health</li>
-                        <li>Health</li>
-                      </ul>
-                   </div>
-              </div>
-            </div>
-     </div>
+<app-server-sidebar></app-server-sidebar>
+<div class="main-content" id="main-content">
+  <header class="topbar">
+    <div class="toggle-btn" id="sidebarToggle" title="Toggle Menu">&#9776;</div>
+    <div class="profile">
+      <img src="https://i.pravatar.cc/40" alt="User profile picture" />
+      <span>Rakib Khan</span>
+    </div>
+  </header>
+
+  <section aria-label="Categories List">
+    <h1>Categories</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Category ID</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>C5001</td>
+          <td>Furniture</td>
+          <td>Chairs, tables, sofas and other furniture.</td>
+          <td>Active</td>
+          <td>
+            <button class="btn btn-edit" title="Edit Category">Edit</button>
+            <button class="btn btn-delete" title="Delete Category">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>C5002</td>
+          <td>Electronics</td>
+          <td>TVs, computers, and electronic gadgets.</td>
+          <td>Active</td>
+          <td>
+            <button class="btn btn-edit" title="Edit Category">Edit</button>
+            <button class="btn btn-delete" title="Delete Category">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>C5003</td>
+          <td>Home Decor</td>
+          <td>Decorative items for home and office.</td>
+          <td>Inactive</td>
+          <td>
+            <button class="btn btn-edit" title="Edit Category">Edit</button>
+            <button class="btn btn-delete" title="Delete Category">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>C5004</td>
+          <td>Books</td>
+          <td>Books, magazines, and stationery.</td>
+          <td>Active</td>
+          <td>
+            <button class="btn btn-edit" title="Edit Category">Edit</button>
+            <button class="btn btn-delete" title="Delete Category">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+
+<script>
+  const sidebar = document.getElementById('sidebar');
+  const toggleBtn = document.getElementById('sidebarToggle');
+
+  toggleBtn.addEventListener('click', () => {
+    if (window.innerWidth <= 900) {
+      sidebar.classList.toggle('active');
+    } else {
+      sidebar.classList.toggle('collapsed');
+    }
+  });
+
+  document.addEventListener('click', e => {
+    if (window.innerWidth <= 900) {
+      if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
+        sidebar.classList.remove('active');
+      }
+    }
+  });
+</script>

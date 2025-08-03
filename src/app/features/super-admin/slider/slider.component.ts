@@ -1,9 +1,10 @@
 import { Component, OnInit,inject } from '@angular/core';
 import { Slider } from '../../../core/models/super-admin/slider';
 import { SliderService } from '../../../core/services/super-admin/slider.service';
+import { SidebarComponent } from '../../../shared/components/admin/sidebar/sidebar.component';
 @Component({
   selector: 'app-slider',
-  imports: [],
+  imports: [SidebarComponent],
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.css'
 })

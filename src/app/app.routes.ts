@@ -10,6 +10,8 @@ import { ArtsAndPaintsComponent } from './features/web/arts-and-paints/arts-and-
 import { HomeDecorComponent } from './features/web/home-decor/home-decor.component';
 import { InteriorComponent } from './features/web/interior/interior.component';
 import { SuperAdminDashboardComponent } from './features/super-admin/super-admin-dashboard/super-admin-dashboard.component';
+import { CategoryComponent } from './features/super-admin/category/category.component';
+import { SliderComponent } from './features/super-admin/slider/slider.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -44,7 +46,18 @@ export const routes: Routes = [
     canActivate: [authGuard],
     data: { roles: ['superadmin'] }
   },
-
+  {
+    path: 'super-admin/category',
+    component: CategoryComponent,
+    canActivate: [authGuard],
+    data: { roles: ['superadmin'] }
+  },
+  {
+    path: 'super-admin/slider',
+    component: SliderComponent,
+    canActivate: [authGuard],
+    data: { roles: ['superadmin'] }
+  },
   // Admin Dashboard Pages
   {
     path: 'businessman/dashboard',

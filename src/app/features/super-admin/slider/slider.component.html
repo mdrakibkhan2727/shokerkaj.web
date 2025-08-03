@@ -1,24 +1,63 @@
-  <div class="single-channel-image">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner">
-            @for (slider of sliders; track $index){
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="img/channel-banner.png" alt="First slide">
-              </div>
-             }
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
+ <app-server-sidebar></app-server-sidebar>
+  <div class="main-content" id="main-content">
+    <header class="topbar">
+      <div class="toggle-btn" id="sidebarToggle" title="Toggle Menu">&#9776;</div>
+      <div class="profile">
+        <img src="https://i.pravatar.cc/40" alt="User profile picture" />
+        <span>Rakib Khan</span>
+      </div>
+    </header>
+
+    <section aria-label="Categories List">
+      <h1>Sliders</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Slider ID</th>
+            <th>Banner</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (slider of sliders; track $index){
+            <tr>
+              <td>{{slider.id}}</td>
+              <td><img [src]=" slider.imageUrl ?  slider.imageUrl : 'assets/images/default-avatar.png'" alt="{{slider.title}}"
+                class="avatar-img rounded-circle" width="60"></td>
+              <td>{{slider.title}}</td>
+              <td>{{slider.shortDescription}}</td>
+              <td>Active</td>
+              <td>
+                <button class="btn btn-edit" title="Edit Category">Edit</button>
+                <button class="btn btn-delete" title="Delete Category">Delete</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </section>
   </div>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.getElementById('sidebarToggle');
+
+    toggleBtn.addEventListener('click', () => {
+      if (window.innerWidth <= 900) {
+        sidebar.classList.toggle('active');
+      } else {
+        sidebar.classList.toggle('collapsed');
+      }
+    });
+
+    document.addEventListener('click', e => {
+      if (window.innerWidth <= 900) {
+        if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
+          sidebar.classList.remove('active');
+        }
+      }
+    });
+  </script>

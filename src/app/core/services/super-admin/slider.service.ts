@@ -14,7 +14,7 @@ export class SliderService {
   getSliders(): Observable<any> {
 
     return this.http
-              .get<Slider[]>(this.apiUrl + '/sliders/get-all-slider')
+              .get<Slider[]>(this.apiUrl + 'sliders/get-all-slider')
               .pipe(map((response) => response))
   }
 }
