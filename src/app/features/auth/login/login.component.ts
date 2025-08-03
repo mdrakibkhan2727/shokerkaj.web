@@ -44,10 +44,9 @@ export class LoginComponent implements OnInit {
           const payload = jwtDecode<JwtPayload>(token);
           const roles =  payload.role;
 
-          if (roles.includes('superadmin')) this.router.navigate(['/newbusinessman/blog-post']);
-          else if (roles.includes('businessman')) this.router.navigate(['/admin/dashboard']);
-          else if (roles.includes('newbusinessman')) this.router.navigate(['/newbusinessman/dashboard']);
-          else if (roles.includes('teacher')) this.router.navigate(['/businessman/profile-playlist']);
+          if (roles.includes('superadmin')) this.router.navigate(['/super-admin/dashboard']);
+          else if (roles.includes('businessman')) this.router.navigate(['/businessman/dashboard']);
+          else if (roles.includes('user')) this.router.navigate(['/user/dashboard']);
           else this.router.navigate(['/unauthorized']);
         },
         error: (err) => {

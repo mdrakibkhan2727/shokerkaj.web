@@ -1,0 +1,178 @@
+<app-server-sidebar></app-server-sidebar>
+<div class="main-content" id="main-content">
+  <header class="topbar">
+    <div class="toggle-btn" id="sidebarToggle" title="Toggle Menu">&#9776;</div>
+    <div class="profile">
+      <img src="https://i.pravatar.cc/40" alt="Superadmin profile picture" />
+      <span>Superadmin</span>
+    </div>
+  </header>
+
+  <section class="cards" aria-label="Key metrics">
+    <div class="card">
+      <div>Total Users</div>
+      <div class="icon">👥</div>
+    </div>
+    <div class="card">
+      <div>Products</div>
+      <div class="icon">📦</div>
+    </div>
+    <div class="card">
+      <div>Orders</div>
+      <div class="icon">🛒</div>
+    </div>
+    <div class="card">
+      <div>Videos</div>
+      <div class="icon">🎬</div>
+    </div>
+  </section>
+
+  <section aria-label="Users Overview" style="margin-bottom: 40px;">
+    <h2 style="color:#5d4037; margin-bottom:15px;">Recent Users</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Registered On</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>U1001</td>
+          <td>Rakib Khan</td>
+          <td>rakibexample.com</td>
+          <td>2025-01-20</td>
+        </tr>
+        <tr>
+          <td>U1002</td>
+          <td>Fazlay Rabby</td>
+          <td>fazlayexample.com</td>
+          <td>2025-02-05</td>
+        </tr>
+        <tr>
+          <td>U1003</td>
+          <td>Sumaiya Akter</td>
+          <td>sumaiyaexample.com</td>
+          <td>2025-03-10</td>
+        </tr>
+        <tr>
+          <td>U1004</td>
+          <td>John Doe</td>
+          <td>john.doeexample.com</td>
+          <td>2025-04-12</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section aria-label="Recent Orders" style="margin-bottom: 40px;">
+    <h2 style="color:#5d4037; margin-bottom:15px;">Recent Orders</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>User</th>
+          <th>Product</th>
+          <th>Status</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>O2001</td>
+          <td>Rakib Khan</td>
+          <td>Modern Sofa</td>
+          <td>Delivered</td>
+          <td>2025-07-01</td>
+        </tr>
+        <tr>
+          <td>O2002</td>
+          <td>Sumaiya Akter</td>
+          <td>Wooden Coffee Table</td>
+          <td>Processing</td>
+          <td>2025-07-02</td>
+        </tr>
+        <tr>
+          <td>O2003</td>
+          <td>Fazlay Rabby</td>
+          <td>Bookshelf</td>
+          <td>Shipped</td>
+          <td>2025-07-03</td>
+        </tr>
+        <tr>
+          <td>O2004</td>
+          <td>John Doe</td>
+          <td>Floor Lamp</td>
+          <td>Cancelled</td>
+          <td>2025-07-04</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section aria-label="Products Overview">
+    <h2 style="color:#5d4037; margin-bottom:15px;">Products Overview</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Product ID</th>
+          <th>Name</th>
+          <th>Price (৳)</th>
+          <th>Stock</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>P3001</td>
+          <td>Modern Sofa</td>
+          <td>15000</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td>P3002</td>
+          <td>Wooden Coffee Table</td>
+          <td>8500</td>
+          <td>25</td>
+        </tr>
+        <tr>
+          <td>P3003</td>
+          <td>Bookshelf</td>
+          <td>9200</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>P3004</td>
+          <td>Floor Lamp</td>
+          <td>4800</td>
+          <td>30</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+
+<script>
+  const sidebar = document.getElementById('sidebar');
+  const toggleBtn = document.getElementById('sidebarToggle');
+
+  toggleBtn.addEventListener('click', () => {
+    // For small screens toggle visibility
+    if (window.innerWidth <= 900) {
+      sidebar.classList.toggle('active');
+    } else {
+      // For desktop toggle collapse width
+      sidebar.classList.toggle('collapsed');
+    }
+  });
+
+  // Close sidebar on click outside on mobile
+  document.addEventListener('click', e => {
+    if (window.innerWidth <= 900) {
+      if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
+        sidebar.classList.remove('active');
+      }
+    }
+  });
+</script>
