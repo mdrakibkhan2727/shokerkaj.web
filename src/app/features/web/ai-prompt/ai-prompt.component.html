@@ -1,0 +1,36 @@
+<app-web-header></app-web-header>
+<section class="hero">
+  <h1>AI Prompt Generator</h1>
+  <p>Ask anything and get instant AI-powered answers.</p>
+</section>
+
+<section class="ai-prompt-section">
+  <div class="prompt-box">
+    <label for="prompt">Enter your prompt:</label>
+    <textarea id="prompt" placeholder="e.g., Write a marketing caption for handmade bird toys..."></textarea>
+    <button onclick="generateResponse()">Generate Response</button>
+  </div>
+  <div class="response-box" id="responseBox">
+     <p>it is ok to work</p>
+  </div>
+</section>
+
+<app-web-footer></app-web-footer>
+
+<script>
+  function generateResponse() {
+    const prompt = document.getElementById("prompt").value.trim();
+    const responseBox = document.getElementById("responseBox");
+
+    if (!prompt) {
+      responseBox.innerHTML = "Please enter a prompt to get started.";
+      return;
+    }
+
+    // Simulated response – replace this with API call if needed
+    responseBox.innerHTML = "⏳ Generating AI response...";
+    setTimeout(() => {
+      responseBox.innerHTML = `💬 AI Response:\n\n"${prompt}" — That's a fantastic idea! Here's how you could take it further: ...`;
+    }, 1200);
+  }
+</script>

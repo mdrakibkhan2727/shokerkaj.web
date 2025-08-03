@@ -1,0 +1,135 @@
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fffaf7;
+      color: #3e2723;
+      line-height: 1.6;
+    }
+
+    .navbar {
+      background-color: #5d4037;
+      color: #fff3e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      color: #fff3e0;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffcc80;
+    }
+
+    .hero {
+      background-color: #ffcc80;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    .ai-prompt-section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .prompt-box {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .prompt-box textarea {
+      padding: 15px;
+      font-size: 1rem;
+      border: 1.5px solid #d7ccc8;
+      border-radius: 6px;
+      resize: vertical;
+      min-height: 120px;
+      outline: none;
+      background-color: #fffaf3;
+    }
+
+    .prompt-box button {
+      padding: 12px;
+      background-color: #5d4037;
+      color: #fff3e0;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      align-self: flex-start;
+    }
+
+    .prompt-box button:hover {
+      background-color: #4e342e;
+    }
+
+    .response-box {
+      margin-top: 25px;
+      padding: 20px;
+      background-color: #fefefe;
+      border-left: 5px solid #5d4037;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 6px;
+      white-space: pre-wrap;
+    }
+
+    .footer {
+      background-color: #3e2723;
+      color: #fff3e0;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 60px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+    }

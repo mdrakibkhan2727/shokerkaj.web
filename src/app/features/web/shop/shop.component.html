@@ -1,0 +1,116 @@
+<app-web-header></app-web-header>
+<main>
+  <h1>Shop Our Bird Collection</h1>
+  <section class="products-grid">
+    <article class="product-card" tabindex="0">
+      <img src="https://placehold.co/400x300?text=Green+Parrot" alt="Green Parrot" />
+      <div class="product-info">
+        <h3 class="product-title">Green Parrot</h3>
+        <p class="product-price">৳1,200</p>
+      </div>
+      <button class="add-to-cart-btn" type="button">Add to Cart</button>
+    </article>
+
+    <article class="product-card" tabindex="0">
+      <img src="https://placehold.co/400x300?text=Colorful+Swing" alt="Colorful Swing" />
+      <div class="product-info">
+        <h3 class="product-title">Colorful Swing</h3>
+        <p class="product-price">৳300</p>
+      </div>
+      <button class="add-to-cart-btn" type="button">Add to Cart</button>
+    </article>
+
+    <article class="product-card" tabindex="0">
+      <img src="https://placehold.co/400x300?text=Bird+Feeder" alt="Bird Feeder" />
+      <div class="product-info">
+        <h3 class="product-title">Bird Feeder</h3>
+        <p class="product-price">৳450</p>
+      </div>
+      <button class="add-to-cart-btn" type="button">Add to Cart</button>
+    </article>
+
+    <article class="product-card" tabindex="0">
+      <img src="https://placehold.co/400x300?text=Lovebird+Pair" alt="Lovebird Pair" />
+      <div class="product-info">
+        <h3 class="product-title">Lovebird Pair</h3>
+        <p class="product-price">৳2,200</p>
+      </div>
+      <button class="add-to-cart-btn" type="button">Add to Cart</button>
+    </article>
+  </section>
+</main>
+
+<!-- Cart Sidebar -->
+<aside class="cart-sidebar" id="cartSidebar" aria-label="Shopping Cart">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <button class="close-cart-btn" aria-label="Close Cart" onclick="toggleCart()">×</button>
+  </div>
+  <ul id="cartItems"></ul>
+  <div class="cart-footer">
+    Total: <span id="cartTotal">৳0</span>
+  </div>
+</aside>
+
+<!-- Cart Icon Button -->
+<button class="cart-icon-btn" aria-label="Toggle Cart" onclick="toggleCart()">🛒</button>
+
+<app-web-footer></app-web-footer>
+
+<script>
+  // Toggle Cart Sidebar
+  const cartSidebar = document.getElementById('cartSidebar');
+  const cartItemsList = document.getElementById('cartItems');
+  const cartTotalEl = document.getElementById('cartTotal');
+  const cart = [];
+
+  function toggleCart() {
+    cartSidebar.classList.toggle('open');
+  }
+
+  // Add product to cart and update cart UI
+  function addToCart(title, price) {
+    cart.push({ title, price });
+    updateCart();
+    if (!cartSidebar.classList.contains('open')) {
+      toggleCart();
+    }
+  }
+
+  function updateCart() {
+    cartItemsList.innerHTML = '';
+    let total = 0;
+    cart.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item.title;
+
+      const priceSpan = document.createElement('span');
+      priceSpan.textContent = `৳${item.price}`;
+      li.appendChild(priceSpan);
+
+      cartItemsList.appendChild(li);
+
+      total += parseFloat(item.price.replace(/,/g, ''));
+    });
+    cartTotalEl.textContent = `৳${total.toLocaleString()}`;
+  }
+
+  document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const card = this.closest('.product-card');
+      const title = card.querySelector('.product-title').textContent;
+      const priceText = card.querySelector('.product-price').textContent;
+      const priceNumber = priceText.replace(/[^\d.,]/g, '').replace(/,/g, '');
+      addToCart(title, priceNumber);
+    });
+  });
+
+  // Mobile menu toggle logic
+  const menuBtn = document.querySelector('.menu-icon-btn');
+  const mobileNav = document.getElementById('mobileNav');
+
+  menuBtn.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', isOpen);
+  });
+</script>

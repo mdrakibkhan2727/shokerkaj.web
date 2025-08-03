@@ -12,6 +12,10 @@ import { InteriorComponent } from './features/web/interior/interior.component';
 import { SuperAdminDashboardComponent } from './features/super-admin/super-admin-dashboard/super-admin-dashboard.component';
 import { CategoryComponent } from './features/super-admin/category/category.component';
 import { SliderComponent } from './features/super-admin/slider/slider.component';
+import { AboutUsComponent } from './features/web/about-us/about-us.component';
+import { ContactUsComponent } from './features/web/contact-us/contact-us.component';
+import { AiPromptComponent } from './features/web/ai-prompt/ai-prompt.component';
+import { ShopComponent } from './features/web/shop/shop.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -38,6 +42,22 @@ export const routes: Routes = [
   {
     path: 'interior',
     component: InteriorComponent,
+  },
+  {
+    path: 'shop',
+    component: ShopComponent,
+  },
+  {
+    path: 'about-us',
+    component: AboutUsComponent,
+  },
+  {
+    path: 'contact-us',
+    component: ContactUsComponent,
+  },
+  {
+    path: 'ai-prompt',
+    component: AiPromptComponent,
   },
   // SuperAdmin Dashboard Pages
   {
