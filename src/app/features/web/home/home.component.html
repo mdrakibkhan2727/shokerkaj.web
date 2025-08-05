@@ -1,33 +1,37 @@
 <app-web-header></app-web-header>
 
-<section class="hero">
-  <h1>Welcome to Shokerkaj</h1>
-  <p>Your one-stop shop for Birds, Toys, Art, Home Decor, and Interior Accessories</p>
-</section>
+<!-- <section class="hero">
+
+</section> -->
+<div id="carouselExampleControls" class="carousel slide " data-ride="carousel">
+  <div class="carousel-inner ">
+    <div *ngFor="let item of sliders; let i = index" class="carousel-item" [class.active]="i === 0">
+      <img class="d-block w-100" [src]="item.imageUrl || 'assets/images/default-avatar.png'" [alt]="item.title">
+      <div class="carousel-caption d-none d-md-block">
+        <h1>{{item.title}}</h1>
+        <p>{{item.shortDescription}}</p>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
 <section class="categories">
   <h2>Shop by Category</h2>
   <div class="category-grid">
-    <a routerLink="/birds-and-toys" class="category-item">
-      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80"
-        alt="Birds & Toys" />
-      <span>Birds & Toys</span>
-    </a>
-    <a routerLink="/arts-and-paints" class="category-item">
-      <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80"
-        alt="Arts" />
-      <span>Arts & Paints</span>
-    </a>
-    <a routerLink="/home-decor" class="category-item">
-      <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=400&q=80"
-        alt="Home Decor" />
-      <span>Home Decor</span>
-    </a>
-    <a routerLink="/interior" class="category-item">
-      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80"
-        alt="Interior" />
-      <span>Interior Design</span>
-    </a>
+    @for (item of categories; track $index){
+      <a routerLink="/birds-and-toys" class="category-item" >
+        <img style="width: 210px; height: 140px;" [src]=" item.imageUrl ?  item.imageUrl : 'assets/images/default-avatar.png'" alt="{{item.name}}" />
+        <span>{{item.name}}</span>
+      </a>
+    }
   </div>
 </section>
 

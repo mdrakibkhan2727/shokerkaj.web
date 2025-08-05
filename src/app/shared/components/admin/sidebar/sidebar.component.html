@@ -1,67 +1,44 @@
 <aside class="sidebar" id="sidebar">
   <div class="logo">Shokerkaj</div>
   <nav class="nav-links">
-    <a href="#" class="active" title="Dashboard">
-      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20">
-        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8v-10h-8v10zm0-18v6h8V3h-8z" />
-      </svg>
-      <span>Dashboard</span>
-    </a>
-    <a href="#" title="Users">
-      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20">
-        <path
-          d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5s-3 1.34-3 3 1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z" />
-      </svg>
-      <span>Users</span>
-    </a>
-    <a href="#" title="Products">
-      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20">
-        <path d="M20 6H4v12h16V6zM5 17v-1h14v1H5zM15 8h2v5h-2V8z" />
-      </svg>
-      <span>Products</span>
-    </a>
-    <a href="#" title="Orders">
-      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20">
-        <path d="M3 6h18v2H3zm0 4h18v2H3zm0 4h18v2H3z" />
-      </svg>
-      <span>Orders</span>
-    </a>
-    <a href="#" title="Videos">
-      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20">
-        <path d="M10 16.5l6-4.5-6-4.5v9z" />
-      </svg>
-      <span>Videos</span>
-    </a>
-    <a href="services.html" title="Services">
-      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20">
-        <path d="M12 2L2 7v7c0 5 5 8 10 8s10-3 10-8V7l-10-5z" />
-      </svg>
-      <span>Services</span>
-    </a>
-    <a href="categories.html" title="Categories">
-      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20">
-        <path d="M4 6h16v2H4zm0 5h10v2H4zm0 5h7v2H4z" />
-      </svg>
-      <span>Categories</span>
-    </a>
-    <a href="#" title="Sliders">
-      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20">
-        <path d="M20 6H4v12h16V6zM5 17v-1h14v1H5zM15 8h2v5h-2V8z" />
-      </svg>
-      <span>Sliders</span>
-    </a>
-    <a href="#" title="Settings">
-      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20">
-        <path
-          d="M19.14 12.936l1.43-2.49-1.43-2.49-3.232-1.31-1.22-3.474-3.468 1.22-1.308 3.23-2.49 1.432 2.49 1.43 1.308 3.23 3.47-1.218 1.222-3.47 3.23 1.31z" />
-      </svg>
-      <span>Settings</span>
-    </a>
-    <a (click)="logout()" title="Logout">
-      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20">
-        <path d="M16 13v-2H7V8l-5 4 5 4v-3h9z" />
-      </svg>
-      <span>Logout</span>
-    </a>
+    <div *ngFor="let item of sidebarItems" class="nav-item dropdown">
+
+      <!-- No children: normal router link or click handler -->
+      <a *ngIf="!item.children?.length" [routerLink]="!item.hasClickHandler ? item.route : null" href="#"
+        (click)="item.hasClickHandler ? onItemClick(item, $event) : null" title="{{ item.label }}">
+
+        <svg *ngIf="item.svgPath" xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 24 24"
+          fill="currentColor" aria-hidden="true">
+          <path [attr.d]="item.svgPath"></path>
+        </svg>
+        <span>{{ item.label }}</span>
+      </a>
+
+      <!-- Has children: dropdown toggle -->
+      <ng-container *ngIf="item.children?.length">
+        <a href="#" class="nav-link dropdown-toggle" (click)="toggleDropdown(item); $event.preventDefault()"
+          [attr.aria-expanded]="item.isOpen" title="{{ item.label }}">
+
+          <svg *ngIf="item.svgPath" xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 24 24"
+            fill="currentColor" aria-hidden="true">
+            <path [attr.d]="item.svgPath"></path>
+          </svg>
+          {{ item.label }}
+        </a>
+
+        <div class="dropdown-menu" *ngIf="item.isOpen">
+          <a *ngFor="let child of item.children" [routerLink]="!child.hasClickHandler ? child.route : null" href="#"
+            (click)="child.hasClickHandler ? onItemClick(child, $event) : null" class="dropdown-item"
+            title="{{ child.label }}">
+            <svg *ngIf="child.svgPath" xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 24 24"
+              fill="currentColor" aria-hidden="true">
+              <path [attr.d]="child.svgPath"></path>
+            </svg>
+            {{ child.label }}
+          </a>
+        </div>
+      </ng-container>
+
+    </div>
   </nav>
 </aside>

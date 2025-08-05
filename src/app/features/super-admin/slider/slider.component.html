@@ -22,13 +22,13 @@
           </tr>
         </thead>
         <tbody>
-          @for (slider of sliders; track $index){
+          @for (item of sliders; track $index){
             <tr>
-              <td>{{slider.id}}</td>
-              <td><img [src]=" slider.imageUrl ?  slider.imageUrl : 'assets/images/default-avatar.png'" alt="{{slider.title}}"
+              <td>A100{{item.id}}</td>
+              <td><img [src]=" item.imageUrl ?  item.imageUrl : 'assets/images/default-avatar.png'" alt="{{item.title}}"
                 class="avatar-img rounded-circle" width="60"></td>
-              <td>{{slider.title}}</td>
-              <td>{{slider.shortDescription}}</td>
+              <td>{{item.title}}</td>
+              <td>{{item.shortDescription}}</td>
               <td>Active</td>
               <td>
                 <button class="btn btn-edit" title="Edit Category">Edit</button>

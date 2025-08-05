@@ -15,52 +15,25 @@
         <tr>
           <th>Category ID</th>
           <th>Name</th>
-          <th>Description</th>
+          <th>Image</th>
           <th>Status</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
+        @for (item of categories; track $index){
         <tr>
-          <td>C5001</td>
-          <td>Furniture</td>
-          <td>Chairs, tables, sofas and other furniture.</td>
+          <td>A100{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td><img [src]=" item.imageUrl ?  item.imageUrl : 'assets/images/default-avatar.png'" alt="{{item.name}}"
+              class="avatar-img rounded-circle" width="60"></td>
           <td>Active</td>
           <td>
             <button class="btn btn-edit" title="Edit Category">Edit</button>
             <button class="btn btn-delete" title="Delete Category">Delete</button>
           </td>
         </tr>
-        <tr>
-          <td>C5002</td>
-          <td>Electronics</td>
-          <td>TVs, computers, and electronic gadgets.</td>
-          <td>Active</td>
-          <td>
-            <button class="btn btn-edit" title="Edit Category">Edit</button>
-            <button class="btn btn-delete" title="Delete Category">Delete</button>
-          </td>
-        </tr>
-        <tr>
-          <td>C5003</td>
-          <td>Home Decor</td>
-          <td>Decorative items for home and office.</td>
-          <td>Inactive</td>
-          <td>
-            <button class="btn btn-edit" title="Edit Category">Edit</button>
-            <button class="btn btn-delete" title="Delete Category">Delete</button>
-          </td>
-        </tr>
-        <tr>
-          <td>C5004</td>
-          <td>Books</td>
-          <td>Books, magazines, and stationery.</td>
-          <td>Active</td>
-          <td>
-            <button class="btn btn-edit" title="Edit Category">Edit</button>
-            <button class="btn btn-delete" title="Delete Category">Delete</button>
-          </td>
-        </tr>
+      }
       </tbody>
     </table>
   </section>
