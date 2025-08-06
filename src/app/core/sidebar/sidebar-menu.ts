@@ -37,8 +37,20 @@ export const SIDEBAR_ITEMS: SidebarItem[] = [
     roles: ['superadmin']
   },
   {
-    label: 'Products',
+    label: 'Categories',
+    svgPath: 'M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z',
+    roles: ['superadmin'],
+    route: '/super-admin/category',
+  },
+   {
+    label: 'Sliders',
     svgPath: 'M20 6H4v12h16V6zM5 17v-1h14v1H5zM15 8h2v5h-2V8z',
+    roles: ['superadmin'],
+    route: '/super-admin/slider',
+  },
+  {
+    label: 'Products',
+    svgPath: 'M21 16V8a2 2 0 0 0-1-1.73L12 2 4 6v12a2 2 0 0 0 1 1.73l7 4 8-4a2 2 0 0 0 1-1.73zM12 22l-6-3.46V7.07l6 3.46v11.47zM18 18.54l-6 3.46V10.54l6-3.46v11.46z',
     roles: ['superadmin'],
     children: [
       {

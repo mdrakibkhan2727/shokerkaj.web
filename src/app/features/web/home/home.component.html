@@ -1,11 +1,8 @@
 <app-web-header></app-web-header>
 
-<!-- <section class="hero">
-
-</section> -->
-<div id="carouselExampleControls" class="carousel slide " data-ride="carousel">
+<div id="carouselExampleControls" class="carousel" data-ride="carousel">
   <div class="carousel-inner ">
-    <div *ngFor="let item of sliders; let i = index" class="carousel-item" [class.active]="i === 0">
+    <div *ngFor="let item of activeSliders; let i = index" class="carousel-item" [class.active]="i === 0">
       <img class="d-block w-100" [src]="item.imageUrl || 'assets/images/default-avatar.png'" [alt]="item.title">
       <div class="carousel-caption d-none d-md-block">
         <h1>{{item.title}}</h1>
@@ -27,13 +24,71 @@
   <h2>Shop by Category</h2>
   <div class="category-grid">
     @for (item of categories; track $index){
-      <a routerLink="/birds-and-toys" class="category-item" >
+      <a [routerLink]="getCategoryLink(item)" class="category-item" >
         <img style="width: 210px; height: 140px;" [src]=" item.imageUrl ?  item.imageUrl : 'assets/images/default-avatar.png'" alt="{{item.name}}" />
         <span>{{item.name}}</span>
       </a>
     }
   </div>
 </section>
+
+  <section class="features">
+    <h2>Why Shop with Shokerkaj?</h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <h3>Top-Quality Products</h3>
+        <p>We offer carefully curated and verified products that ensure both aesthetic and practical value.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Fast & Reliable Delivery</h3>
+        <p>Get your favorite items delivered to your doorstep swiftly and securely.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Trusted by Customers</h3>
+        <p>Thousands of happy clients across Bangladesh trust us for their bird toys and interior decor needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="videos">
+    <h2>Watch Our Showcase</h2>
+    <div class="video-grid">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video 1" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/3JZ_D3ELwOQ" title="Video 2" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/LsoLEjrDogU" title="Video 3" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/tVj0ZTS4WF4" title="Video 4" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Video 5" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/eY52Zsg-KVI" title="Video 6" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="https://source.unsplash.com/random/400x300?decor" alt="Decor Sample" />
+      <img src="https://source.unsplash.com/random/400x300?art" alt="Art Sample" />
+      <img src="https://source.unsplash.com/random/400x300?bird" alt="Bird Sample" />
+      <img src="https://source.unsplash.com/random/400x300?interior" alt="Interior Sample" />
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-item">
+        <p>"Absolutely love the products! The quality of the bird toys is unmatched. Delivery was fast too!"</p>
+        <h4>- Ayesha Rahman</h4>
+      </div>
+      <div class="testimonial-item">
+        <p>"The paintings I ordered for my living room transformed the space completely. Highly recommended!"</p>
+        <h4>- Tareq Ahmed</h4>
+      </div>
+      <div class="testimonial-item">
+        <p>"Easy to use website, affordable prices, and great customer service. Will shop again!"</p>
+        <h4>- Nusrat Jahan</h4>
+      </div>
+    </div>
+  </section>
 
 <app-web-footer></app-web-footer>
 <!-- Font Awesome CDN for icons -->

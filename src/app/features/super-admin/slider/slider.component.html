@@ -9,6 +9,47 @@
     </header>
 
     <section aria-label="Categories List">
+        <form [formGroup]="sliderForm" (ngSubmit)="onSubmit()"
+          style="margin-bottom: 30px; background: #fff3e0; padding: 20px; border-radius: 10px; box-shadow: 0 4px 12px rgba(93,64,55,0.1);">
+          <h2 style="margin-bottom: 20px; color: #5d4037;">{{ isEditMode ? 'Edit Slider' : 'Add Slider' }}</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+
+            <div style="flex: 1 1 250px;">
+              <label for="title" style="font-weight: 600; display: block; margin-bottom: 8px;">Slider Title</label>
+              <input type="text" formControlName="title" id="title" placeholder="Enter slider title" required
+                style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;" />
+            </div>
+
+            <div style="flex: 1 1 100%;">
+              <label for="description" style="font-weight: 600; display: block; margin-bottom: 8px;">Short Description</label>
+              <textarea formControlName="shortDescription" id="description" rows="3" placeholder="Enter short description"
+                required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;"></textarea>
+            </div>
+
+            <div style="flex: 1 1 250px;">
+              <label for="status" style="font-weight: 600; display: block; margin-bottom: 8px;">Status</label>
+              <select formControlName="status" id="status" required
+                style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;">
+                <option [ngValue]="true">Active</option>
+                <option [ngValue]="false">Inactive</option>
+              </select>
+            </div>
+
+            <div style="flex: 1 1 100%;">
+              <label for="imageUrl" style="font-weight: 600; display: block; margin-bottom: 8px;">Banner Image</label>
+              <input type="file" (change)="onFileChange($event)" id="imageUrl" accept="image/*"
+                style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;" />
+            </div>
+
+            <div style="flex: 1 1 100%; text-align: right; margin-top: 10px;">
+              <button type="submit" class="btn btn-edit" [disabled]="sliderForm.invalid"
+                style="padding: 10px 20px;">{{ isEditMode ? 'Update' : 'Add' }}</button>
+            </div>
+
+          </div>
+        </form>
+
+
       <h1>Sliders</h1>
       <table>
         <thead>
@@ -26,13 +67,17 @@
             <tr>
               <td>A100{{item.id}}</td>
               <td><img [src]=" item.imageUrl ?  item.imageUrl : 'assets/images/default-avatar.png'" alt="{{item.title}}"
-                class="avatar-img rounded-circle" width="60"></td>
+                class="rounded-circle" width="60"></td>
               <td>{{item.title}}</td>
               <td>{{item.shortDescription}}</td>
-              <td>Active</td>
               <td>
-                <button class="btn btn-edit" title="Edit Category">Edit</button>
-                <button class="btn btn-delete" title="Delete Category">Delete</button>
+                <span class="badge p-1" [ngClass]="item.status ? 'btn-edit' : 'badge-seconduary'">
+                  {{ item.status ? 'Active' : 'Inactive' }}
+                </span>
+              </td>
+              <td>
+                <button class="btn btn-edit btn-sm" (click)="editSlider(item)" title="Edit Category"><i class="fas fa-edit"></i></button>
+                <button class="btn btn-delete btn-sm" (click)="deleteSlider(item.id)" title="Delete Category"><i class="fas fa-trash-alt"></i></button>
               </td>
             </tr>
           }

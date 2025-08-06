@@ -9,6 +9,34 @@
   </header>
 
   <section aria-label="Categories List">
+    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" id="categoryForm"  style="margin-bottom: 30px; background: #fff3e0; padding: 20px; border-radius: 10px; box-shadow: 0 4px 12px rgba(93,64,55,0.1);">
+      <h2 style="margin-bottom: 20px; color: #5d4037;">Add / Edit Category</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+        <div style="flex: 1 1 250px;">
+          <label for="name" style="font-weight: 600; display: block; margin-bottom: 8px;">Category Name</label>
+          <input type="text" formControlName="name" id="name" placeholder="Enter Category Name" required
+            style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;" />
+        </div>
+        <div style="flex: 1 1 250px;">
+          <label for="status" style="font-weight: 600; display: block; margin-bottom: 8px;">Status</label>
+          <select formControlName="status" id="status" required
+            style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;">
+            <option [ngValue]="true">Active</option>
+            <option [ngValue]="false">Inactive</option>
+          </select>
+        </div>
+        <div style="flex: 1 1 100%;">
+          <label for="imageUrl" style="font-weight: 600; display: block; margin-bottom: 8px;">Category Image</label>
+          <input type="file" (change)="onFileChange($event)" id="imageUrl" accept="image/*"
+            style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;" />
+        </div>
+        <div style="flex: 1 1 100%; text-align: right; margin-top: 10px;">
+          <button type="submit" class="btn btn-edit" style="padding: 10px 20px;">Submit</button>
+        </div>
+      </div>
+    </form>
+
+
     <h1>Categories</h1>
     <table>
       <thead>

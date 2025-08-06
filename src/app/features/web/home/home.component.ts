@@ -39,6 +39,21 @@ export class HomeComponent {
     });
   }
 
+categoryRouteMap: { [key: string]: string } = {
+  'Birds': 'birds-and-toys',
+  'Arts & Paints': 'arts-and-paints',
+  'Home Decor': 'home-decor',
+  'Interior': 'interior'
+};
+
+getCategoryLink(item: any): string {
+  return '/' + (this.categoryRouteMap[item.name] || item.name.toLowerCase().replace(/ /g, '-'));
+}
+
+ get activeSliders() {
+  return this.sliders.filter(slider => slider.status === true);
+ }
+
   loadSlider(): void {
     this.sliderService.getSliders().subscribe({
       next: (response) => {

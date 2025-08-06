@@ -30,34 +30,42 @@ export const routes: Routes = [
   {
     path: 'birds-and-toys',
     component: BirdsAndToysComponent,
+    data: { category: 'Birds' }
   },
   {
     path: 'arts-and-paints',
     component: ArtsAndPaintsComponent,
+    data: { category: 'Arts & Paints' }
   },
   {
     path: 'home-decor',
     component: HomeDecorComponent,
+    data: { category: 'Home Decor' }
   },
   {
     path: 'interior',
     component: InteriorComponent,
+    data: { category: 'Interior' }
   },
   {
     path: 'shop',
     component: ShopComponent,
+    data: { shop: 'shop' }
   },
   {
     path: 'about-us',
     component: AboutUsComponent,
+    data: { about: 'about-us' }
   },
   {
     path: 'contact-us',
     component: ContactUsComponent,
+    data: { contact: 'contact-us' }
   },
   {
     path: 'ai-prompt',
     component: AiPromptComponent,
+    data: { ai_prompt: 'ai-prompt' }
   },
   // SuperAdmin Dashboard Pages
   {

@@ -1,6 +1,7 @@
 export interface Slider {
   id: number;
-  imageUrl: string;
   title: string;
   shortDescription: string;
+  status: boolean;
+  imageUrl: string | File;
 }
